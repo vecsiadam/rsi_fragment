@@ -238,9 +238,8 @@ class HomeFragment : Fragment() {
     }
 
     private fun closeKeyBoard(view : View) {
-        if (view != null) {
             val imm = getActivity()?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(view.windowToken, 0)
-        }
+
     }
 }
