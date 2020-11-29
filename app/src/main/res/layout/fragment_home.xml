@@ -99,6 +99,7 @@
                     android:padding="5dp"
                     android:textSize="10dp"
                     android:text="Gyógyszer"
+                    android:textStyle="bold"
                     android:textColor="#000"></TextView>
 
                 <TextView
@@ -108,6 +109,7 @@
                     android:textSize="10dp"
                     android:padding="5dp"
                     android:text="1 kg-ra bontva"
+                    android:textStyle="bold"
                     android:textColor="#000"></TextView>
 
                 <TextView
@@ -117,6 +119,7 @@
                     android:padding="5dp"
                     android:textSize="10dp"
                     android:text="Dózis"
+                    android:textStyle="bold"
                     android:textColor="#000"></TextView>
             </TableRow>
 

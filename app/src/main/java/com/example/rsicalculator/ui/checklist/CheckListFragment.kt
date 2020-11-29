@@ -17,7 +17,6 @@ class CheckListFragment : Fragment() {
     ): View? {
 
         val root = inflater.inflate(R.layout.fragment_checklist, container, false)
-        val textView: TextView = root.findViewById(R.id.text_dashboard)
 
 
         return root
