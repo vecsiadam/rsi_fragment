@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16sp"
+    android:scrollbarSize="0dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="RSI kalulátor"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Kérem adja meg a beteg testsúlyát, vagy ha gyerek akkor az életkorát!"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/edt_weight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Testsúly"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/edt_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Életkor"
+            android:inputType="number" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <Button
+                android:id="@+id/btn_calculate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Számolás" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/txt_age"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_weight"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_eet"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="10dp" />
+
+        <TextView
+            android:id="@+id/txt_ett_teeth"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:textSize="10dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="*">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Gyógyszer"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:textSize="10dp"
+                    android:padding="5dp"
+                    android:text="1 kg-ra bontva"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Dózis"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Ketamin iv (10mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="2mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/ketamin_iv_sleep_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Succynilcholin (50mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="2mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/succynilcholin_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Rocuronium (10mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="1mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/rocuronium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Fentanyl (50μg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="1μg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/fentanyl_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Morphium (1mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="0.1mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/morphium_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Midazolam (1mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="0.02mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/midazolam_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Ketamin iv (10mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="0.5mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+
+                <TextView
+                    android:id="@+id/ketamin_iv_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Ketamin im (50mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="5-10mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/ketamin_im_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Adrenalin (0.1mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="0.01mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/adrenalin_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Atrophin (0.1mg/ml) "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="0.2mg/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/atrophin_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Folyadékpótlás "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="10-20ml/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/fluid_replacement_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Defibriláció energiája"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="4j/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/defibrilation_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Glükóz (20%)"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="2.5ml/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/glucose_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="Tidal Volumen "
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="7ml/ttkg"
+                    android:textColor="#000"></TextView>
+
+                <TextView
+                    android:id="@+id/tidal_volumen_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/cell_shape"
+                    android:padding="5dp"
+                    android:textSize="10dp"
+                    android:text="-"
+                    android:textColor="#000"></TextView>
+            </TableRow>
+        </TableLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textSize="60dp"/>
+    </LinearLayout>
+</ScrollView>

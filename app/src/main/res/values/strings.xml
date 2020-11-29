@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">RSI Calculator</string>
+    <string name="title_home">Kezdőlap</string>
+    <string name="title_checklist">Csekklista</string>
+    <string name="title_30_seconds">30mp eljárás</string>
+</resources>
